@@ -1,12 +1,20 @@
 @import "ui-variables";
 
 .tree-view {
+  padding: 15px;
   font-size: @font-size;
   background: @tree-view-background-color;
 
   .selected:before {
-    background: #444;
-    box-shadow: inset -3px 0 0 rgba(0,0,0, .05);
+    transition: all linear 0.2s;
+    background: #002844;
+  }
+
+  .list-item {
+    transition: all linear 0.2s;
+  }
+
+  .selected {
   }
 }
 
@@ -18,20 +26,15 @@
 
 .focusable-panel {
   opacity: 1;
-  box-shadow: inset -3px 0 0 rgba(0,0,0, .05);
 
   &:focus {
-    background: #282828;
+    .status-ignored.selected.file,
+    .status-ignored.selected.directory > .header {
+      color: @text-color-subtle-highlight !important;
+    }
 
     .selected:before {
       background: @background-color-selected;
     }
-  }
-}
-
-[data-show-on-right-side=true] {
-  .tree-view .selected:before,
-  .focusable-panel {
-    box-shadow: inset 3px 0 0 rgba(0,0,0, .05);
   }
 }

@@ -3,24 +3,28 @@
 
 .btn-background (@color, @hover-color, @selected-color, @text-color) {
   color: @text-color;
-  background-color: transparent;
-  background-image: -webkit-linear-gradient(@color, darken(@color, 5%));
+  background-color: darken(@color, 1%);
+  transition: all linear .2s;
 
   &:focus {
     color: @text-color;
   }
+
   &:hover {
     color: @text-color-highlight;
-    background-image: -webkit-linear-gradient(@hover-color, darken(@hover-color, 5%));
+    background-color: @hover-color;
   }
+
   &.selected,
   &.selected:hover {
     color: @text-color-highlight;
-    background-image: -webkit-linear-gradient(darken(@selected-color, 5%), @selected-color);
+    background-color: darken(@selected-color, 1%);
+
     &:hover {
-      background-image: -webkit-linear-gradient(@selected-color, darken(@selected-color, 5%));
+      background-color: @selected-color;
     }
   }
+
 }
 
 .btn-variant (@color) {
